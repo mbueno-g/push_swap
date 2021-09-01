@@ -1,11 +1,12 @@
 
 #include "push_swap.h"
+# include "Libft/libft.h"
 
 int	ft_min(t_list *a)
 {
-	int	i;
-	int	m;
-	int	pos;
+	int		i;
+	void	*m;
+	int		pos;
 
 	i = 1;
 	pos = 0;
@@ -25,9 +26,9 @@ int	ft_min(t_list *a)
 
 int	ft_max(t_list *a)
 {
-	int	i;
-	int	m;
-	int	pos;
+	int		i;
+	void	*m;
+	int		pos;
 
 	i = 1;
 	pos = 0;

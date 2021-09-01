@@ -1,6 +1,4 @@
-
 #include "push_swap.h"
-#include "Libft/libft.h"
 
 void	ft_print_error(char *m)
 {
@@ -10,22 +8,24 @@ void	ft_print_error(char *m)
 	exit(0);
 }
 
+/* Add the argument to the stack a */
 void	ft_add(t_list **a, char	*argv)
 {
 	t_list	*aux;
-	int		n;
 
 	aux = *a;
-	n = ft_atoi(argv);
+	/*By changing in t_list int content to void *content there`s no need of using atoi*/
+	//n = ft_atoi(argv);
 	while (aux)
 	{
-		if (aux->content == n)
+		if (aux->content == argv)
 			ft_print_error("Duplicate");
 		aux = aux->next;
 	}
-	ft_lstadd_back(a, ft_lstnew(n));
+	ft_lstadd_back(a, ft_lstnew(argv));
 }
 
+/* Check if the argument is a number*/
 void	ft_check(char *argv)
 {
 	int	i;
@@ -41,6 +41,8 @@ void	ft_check(char *argv)
 	}
 }
 
+/* Depending on the size of stack a applies a different
+sorting algorithm */
 void	ft_push_swap(t_list **a, t_list **b)
 {
 	int	len;

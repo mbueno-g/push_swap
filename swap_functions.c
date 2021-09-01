@@ -4,7 +4,7 @@
 
 void	ft_swap(t_list **src, char s)
 {
-	int	aux;
+	void	*aux;
 
 	aux = (*src)->content;
 	(*src)->content = (*src)->next->content;

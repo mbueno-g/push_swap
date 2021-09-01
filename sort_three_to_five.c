@@ -1,5 +1,6 @@
 
 #include "push_swap.h"
+# include "Libft/libft.h"
 
 void	ft_sort_three(t_list **a)
 {
@@ -71,8 +72,7 @@ void	ft_sort_four_five(t_list **a, t_list **b)
 		ft_push(b, a, 'a');
 	while (*a)
 	{
-		printf("%d", (*a)->content);
+		printf("%p", (*a)->content);
 		*a = (*a)->next;
 	}
-
 }
