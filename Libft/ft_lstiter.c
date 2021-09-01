@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 18:07:27 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/04/13 18:25:32 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/01 18:11:44 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
-		f(lst->content);
+		f(&lst->content);
 		lst = lst->next;
 	}
 }

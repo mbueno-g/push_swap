@@ -1,18 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/08 15:57:21 by mbueno-g          #+#    #+#              #
-#    Updated: 2021/04/18 11:57:26 by mbueno-g         ###   ########.fr        #
+#    Updated: 2021/09/01 19:12:05 by mbueno-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a 
+NAME = libft.a
 
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall -Werror -Wextra
 
 AR = ar rc
 
@@ -66,20 +66,24 @@ OBJS = $(SRCS:.c=.o)
 
 OBJSB = $(SRCSB:.c=.o)
 
-$(NAME): 
-	gcc $(FLAGS) -c $(SRCS) 
-	$(AR) $(NAME) $(OBJS) 
-
 all: $(NAME)
 
-bonus: all
-	gcc $(FLAGS) -c $(SRCSB)
+$(NAME): $(OBJS) $(OBJSB)
+	$(AR) $(NAME) $^
+
+$(OBJS): $(SRCS)
+		gcc $(FLAGS) -c $^
+
+bonus: $(OBJSB)
 	$(AR) $(NAME) $(OBJSB)
+
+$(OBJSB): $(SRCSB)
+		gcc $(FLAGS) -c $^
 
 clean:
 	rm -f $(OBJS) $(OBJSB)
 
-fclean: clean 
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
