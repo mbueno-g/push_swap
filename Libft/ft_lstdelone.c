@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:43:22 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/01 18:11:13 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/04/16 10:29:44 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(&lst->content);
+	del(lst->content);
 	free(lst);
 }
