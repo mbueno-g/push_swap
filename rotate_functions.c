@@ -4,7 +4,7 @@
 
 void	ft_rotate(t_list **src, char r)
 {
-	ft_lstadd_back(src, ft_lstnew((*src)->content));
+	ft_lstadd_back(src, ft_lstnew_struct((*src)->content, sizeof(int)));
 	ft_del(src);
 	if (r == 'a')
 		write(1, "ra\n", 3);
@@ -32,7 +32,7 @@ void	ft_reverse_rotate(t_list **src, char rr)
 		aux = aux->next;
 		i++;
 	}
-	ft_lstadd_front(src, ft_lstnew(aux->next->content));
+	ft_lstadd_front(src, ft_lstnew_struct(aux->next->content, sizeof(int)));
 	free(aux->next);
 	aux->next = NULL; //¿Por que no me deja acerlo con aux = NULL;?
 	if (rr == 'a')

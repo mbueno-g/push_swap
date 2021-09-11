@@ -25,4 +25,6 @@ int		ft_issorted(t_list *a);
 int		ft_min(t_list *a);
 int		ft_max(t_list *a);
 
+t_list	*ft_lstnew_struct(void *content, size_t size);
+int			st_printstack_ab(t_list *a, t_list *b);
 #endif

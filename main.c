@@ -1,4 +1,7 @@
 #include "push_swap.h"
+#include "Libft/libft.h"
+
+int	st_printstack_ab(t_list *a, t_list *b);
 
 void	ft_print_error(char *m)
 {
@@ -12,17 +15,20 @@ void	ft_print_error(char *m)
 void	ft_add(t_list **a, char	*argv)
 {
 	t_list	*aux;
+	int			n;
 
 	aux = *a;
 	/*By changing in t_list int content to void *content there`s no need of using atoi*/
-	//n = ft_atoi(argv);
+	//Añadir limites de enteros y cuidado si entra en un int
+	n = ft_atoi(argv);
 	while (aux)
 	{
-		if (aux->content == argv)
+		if (*(int *)aux->content == n)
 			ft_print_error("Duplicate");
 		aux = aux->next;
 	}
-	ft_lstadd_back(a, ft_lstnew(argv));
+	ft_lstadd_back(a, ft_lstnew_struct((void *)&n, sizeof(int)));
+	//st_printstack_ab(*a,NULL);
 }
 
 /* Check if the argument is a number*/
@@ -52,7 +58,7 @@ void	ft_push_swap(t_list **a, t_list **b)
 	{
 		if (len == 2)
 		{
-			if ((*a)->content > (*a)->next->content)
+			if (*(int *)(*a)->content > *(int *)(*a)->next->content)
 				ft_swap(a, 'a');
 		}
 		else if (len == 3)
