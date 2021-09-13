@@ -16,7 +16,7 @@ FLAGS = -Wall -Werror -Wextra
 RM = rm -f
 LIBFT = Libft/libft.a
 
-SRC_M = main.c push_functions.c rotate_functions.c swap_functions.c sort_three_to_five.c utils.c ft_lstnew_struct.c print_stack.c quick_sort.c
+SRC_M = main.c push_functions.c rotate_functions.c swap_functions.c sort_three_to_five.c utils.c ft_lstnew_struct.c print_stack.c quick_sort.c big_sort.c
 SRC_B =
 
 OBJ_M = $(SRC_M:.c=.o)

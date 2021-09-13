@@ -68,10 +68,10 @@ void	ft_push_swap(t_list **a, t_list **b)
 		{
 			s = ft_quick_sort(*a);
 			printf("ORIGINAL\n");
-			st_printstack_ab(*a, NULL);
+			st_printstack_ab(*a, *b);
 			ft_index(a, s);
 			printf("INDEX\n");
-			st_printstack_ab(*a, NULL);
+			st_printstack_ab(*a, *b);
 			if (len > 3 && len <= 5)
 				ft_sort_four_five(a, b);
 			else
@@ -80,7 +80,7 @@ void	ft_push_swap(t_list **a, t_list **b)
 		//else if (len <= 40)
 	}
 	printf("SORTED\n");
-	st_printstack_ab(*a, NULL);
+	st_printstack_ab(*a, *b);
 }
 
 int	main(int argc, char **argv)

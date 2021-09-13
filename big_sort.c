@@ -27,13 +27,51 @@ int	ft_block_size(t_list *a)
 		return (len / 20);
 }
 
+/*int	ft_in_pos(t_list *b, int len)
+{
+	if (!b)
+		return (len);
+	else if (len == *(int *)b->content)
+		ft_in_pos(b->next, len--);
+	else
+		return (len);
+}*/
+
+
 void	ft_big_sort(t_list **a, t_list **b)
 {
-	int size;
+	//int size;
+	//size = ft_block_size(*a);
 	
-	size = ft_block_size(*a);
+	int	len_a;
+	int	len_b;
+	int	max_bits;
+	int	j;
+	int	i;
 
-
-
-
+	len_a = ft_lstsize(*a);
+	max_bits = 0;
+	while((len_a >> max_bits) != 0)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while(j < len_a)
+		{
+			if (((*(int *)(*a)->content >> i) & 1) == 0)
+					ft_push(a, b, 'b');
+			else
+					ft_rotate(a, 'a');
+			j++;
+		}
+		len_b = ft_lstsize(*b);
+		//len_b = ft_in_pos(*b, len_b);
+		while(len_b--)
+		{
+			ft_push(b, a, 'a');
+		}
+		st_printstack_ab(*a, *b);
+		i++;
+	}
 }
