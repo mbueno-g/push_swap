@@ -24,6 +24,9 @@ void	ft_sort_four_five(t_list **a, t_list **b);
 int		ft_issorted(t_list *a);
 int		ft_min(t_list *a);
 int		ft_max(t_list *a);
+int		*ft_create_array(t_list *a);
+int		*ft_quick_sort(t_list *a);
+void	ft_index(t_list **a, int *s);
 
 t_list	*ft_lstnew_struct(void *content, size_t size);
 int			st_printstack_ab(t_list *a, t_list *b);

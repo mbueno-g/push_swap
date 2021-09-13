@@ -52,8 +52,13 @@ sorting algorithm */
 void	ft_push_swap(t_list **a, t_list **b)
 {
 	int	len;
-
+	int	*s;
+	
 	len = ft_lstsize(*a);
+	s = ft_quick_sort(*a);
+	st_printstack_ab(*a, NULL);
+	ft_index(a, s);
+	st_printstack_ab(*a, NULL);
 	if (!ft_issorted(*a))
 	{
 		if (len == 2)
@@ -61,12 +66,16 @@ void	ft_push_swap(t_list **a, t_list **b)
 			if (*(int *)(*a)->content > *(int *)(*a)->next->content)
 				ft_swap(a, 'a');
 		}
-		else if (len == 3)
-			ft_sort_three(a);
-		else if (len > 3)
-			ft_sort_four_five(a, b);
-		//else if (len <= 40)
+		else
+		{	
+			if (len == 3)
+				ft_sort_three(a);
+			else if (len > 3)
+				ft_sort_four_five(a, b);
+			//else if (len <= 40)
+		}
 	}
+	st_printstack_ab(*a, NULL);
 }
 
 int	main(int argc, char **argv)

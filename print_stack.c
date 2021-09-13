@@ -29,11 +29,11 @@ t_list	*st_printstack(t_list *stack)
 
 int	st_printstack_ab(t_list *a, t_list *b)
 {
-	if (!a && !b)
+	/*if (!a && !b)
 	{
-				ft_putstr_fd("Error\n", 2);
-				return (0);
-	}
+		ft_putstr_fd("Error\n", 2);
+		return (0);
+	}*/
 	write(1, "\n", 1);
 	while (a || b)
 	{
