@@ -19,6 +19,8 @@ void	ft_rrr_reverse_rotate(t_list **src);
 /* SORT CASES */
 void	ft_sort_three(t_list **a);
 void	ft_sort_four_five(t_list **a, t_list **b);
+void	ft_big_sort(t_list **a, t_list **b);
+
 
 /* UTILS  */
 int		ft_issorted(t_list *a);

@@ -55,10 +55,6 @@ void	ft_push_swap(t_list **a, t_list **b)
 	int	*s;
 	
 	len = ft_lstsize(*a);
-	s = ft_quick_sort(*a);
-	st_printstack_ab(*a, NULL);
-	ft_index(a, s);
-	st_printstack_ab(*a, NULL);
 	if (!ft_issorted(*a))
 	{
 		if (len == 2)
@@ -66,15 +62,24 @@ void	ft_push_swap(t_list **a, t_list **b)
 			if (*(int *)(*a)->content > *(int *)(*a)->next->content)
 				ft_swap(a, 'a');
 		}
+		else if (len == 3)
+			ft_sort_three(a);
 		else
-		{	
-			if (len == 3)
-				ft_sort_three(a);
-			else if (len > 3)
+		{
+			s = ft_quick_sort(*a);
+			printf("ORIGINAL\n");
+			st_printstack_ab(*a, NULL);
+			ft_index(a, s);
+			printf("INDEX\n");
+			st_printstack_ab(*a, NULL);
+			if (len > 3 && len <= 5)
 				ft_sort_four_five(a, b);
-			//else if (len <= 40)
+			else
+				ft_big_sort(a,b);
 		}
+		//else if (len <= 40)
 	}
+	printf("SORTED\n");
 	st_printstack_ab(*a, NULL);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 15:57:54 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/13 16:40:14 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:10:17 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,11 @@ void	ft_index(t_list	**a, int *s)
 		{
 			//printf("content %d, copia %d, index %d\n", *(int *)(*a)->content, s[i], i);
 			if (s[i] == *(int *)aux->content)
+			{
+				//printf("content %d, copia %d, index %d\n", *(int *)(*a)->content, s[i], i);
 				*(int *)aux->content = i;
+				break ; //por alguna razon entra con 1 4 -4 -1
+			}
 			i++;
 		}
 		//printf("index %d\n", *(int *)aux->content);
