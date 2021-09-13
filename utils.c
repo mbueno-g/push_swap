@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/13 15:57:54 by mbueno-g          #+#    #+#             */
+/*   Updated: 2021/09/13 16:40:14 by mbueno-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 # include "Libft/libft.h"
@@ -55,4 +66,27 @@ int	ft_issorted(t_list *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+void	ft_index(t_list	**a, int *s)
+{
+	int	i;
+	int	len;
+	t_list	*aux;
+	
+	aux = *a;
+	len = ft_lstsize(*a);
+	while (aux)
+	{
+		i = 0;
+		while (i < len)
+		{
+			//printf("content %d, copia %d, index %d\n", *(int *)(*a)->content, s[i], i);
+			if (s[i] == *(int *)aux->content)
+				*(int *)aux->content = i;
+			i++;
+		}
+		//printf("index %d\n", *(int *)aux->content);
+		aux = aux->next;
+	}
 }
