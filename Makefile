@@ -6,7 +6,7 @@
 #    By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 15:10:38 by mbueno-g          #+#    #+#              #
-#    Updated: 2021/09/13 18:23:00 by mbueno-g         ###   ########.fr        #
+#    Updated: 2021/09/16 16:26:41 by mbueno-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ $(OBJ_M): $(SRC_M)
 		$(CC) $(FLAGS) -c $^
 
 Libft:
-	make all -C Libft/
+	@make all -C Libft/
 
 test: all
-	if [ $(N) -le 0 ]; then \
+	@if [ $(N) -le 0 ]; then \
 			echo "Error"; \
 	else \
 			./$(NAME) $(ARGS); \

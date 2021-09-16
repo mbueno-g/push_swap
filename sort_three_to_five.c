@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_three_to_five.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/16 16:14:09 by mbueno-g          #+#    #+#             */
+/*   Updated: 2021/09/16 16:15:50 by mbueno-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 # include "Libft/libft.h"
@@ -63,7 +74,9 @@ void	ft_sort_four_five(t_list **a, t_list **b)
 	{
 		min = ft_min(*a);
 		ft_place_in_top(a, min);
-		st_printstack_ab(*a,*b);
+		//printf("place in top\n");
+		//st_printstack_ab(*a,*b);
+		//printf("top in b\n");
 		sort = ft_issorted((*a)->next);
 		if (sort)
 				break;
