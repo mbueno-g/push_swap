@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/16 15:12:08 by mbueno-g          #+#    #+#             */
+/*   Updated: 2021/09/16 16:26:39 by mbueno-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "Libft/libft.h"
 
@@ -39,6 +51,7 @@ void	ft_check(char *argv)
 	i = 0;
 	while (argv[i])
 	{
+		//printf("argv %c\n", argv[i]);
 		if (!ft_strchr("0123456789+-", argv[0]))
 			ft_print_error("i = 0");
 		if (i != 0 && !ft_strchr("0123456789", argv[i]))
@@ -67,20 +80,19 @@ void	ft_push_swap(t_list **a, t_list **b)
 		else
 		{
 			s = ft_quick_sort(*a);
-			printf("ORIGINAL\n");
-			st_printstack_ab(*a, *b);
+			//printf("ORIGINAL\n");
+			//st_printstack_ab(*a, *b);
 			ft_index(a, s);
-			printf("INDEX\n");
-			st_printstack_ab(*a, *b);
+			//printf("INDEX\n");
+			//st_printstack_ab(*a, *b);
 			if (len > 3 && len <= 5)
 				ft_sort_four_five(a, b);
 			else
 				ft_big_sort(a,b);
 		}
-		//else if (len <= 40)
 	}
-	printf("SORTED\n");
-	st_printstack_ab(*a, *b);
+	//printf("SORTED\n");
+	//st_printstack_ab(*a, *b);
 }
 
 int	main(int argc, char **argv)
@@ -88,17 +100,23 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 	int		i;
+	char	**tab;
 
 	b = NULL;
 	a = NULL;
 	i = 1;
 	while (i <= argc - 1)
 	{
-		ft_check(argv[i]);
-		ft_add(&a, argv[i]);
+		tab = ft_split(argv[i], ' ');
+		while(*tab)
+		{
+			ft_check(*tab);
+			ft_add(&a, *tab);
+			tab++;
+		}
 		i++;
 	}
-	if (argc >= 3)
+	if (argc >= 2)
 		ft_push_swap(&a, &b);
 	return (0);
 }
