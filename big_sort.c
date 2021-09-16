@@ -6,28 +6,13 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:01:17 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/13 18:22:57 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/16 16:26:37 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_block_size(t_list *a)
-{
-	//int	min;
-	//int max;
-	int	len;
-
-	len = ft_lstsize(a);
-	if (len > 5 && len < 100)
-		return (len / 5);
-	else if (len >= 100 && len < 500)
-		return (len / 10);
-	else
-		return (len / 20);
-}
-
-/*int	ft_in_pos(t_list *b, int len)
+int	ft_in_pos(t_list *b, int len)
 {
 	if (!b)
 		return (len);
@@ -35,7 +20,7 @@ int	ft_block_size(t_list *a)
 		ft_in_pos(b->next, len--);
 	else
 		return (len);
-}*/
+}
 
 
 void	ft_big_sort(t_list **a, t_list **b)
@@ -57,21 +42,25 @@ void	ft_big_sort(t_list **a, t_list **b)
 	while (i < max_bits)
 	{
 		j = 0;
-		while(j < len_a)
+		while(j < len_a && !ft_issorted(*a))
 		{
-			if (((*(int *)(*a)->content >> i) & 1) == 0)
+			if (((*(int *)(*a)->content >> i) & 1) == 0) // && !ft_issorted(*a))
 					ft_push(a, b, 'b');
 			else
 					ft_rotate(a, 'a');
+			//st_printstack_ab(*a, *b);
 			j++;
 		}
-		len_b = ft_lstsize(*b);
-		//len_b = ft_in_pos(*b, len_b);
+		//printf("send to b\n");
+		//st_printstack_ab(*a, *b);
+		//len_b = ft_lstsize(*b);
+		len_b = ft_in_pos(*b, len_b);
 		while(len_b--)
 		{
 			ft_push(b, a, 'a');
 		}
-		st_printstack_ab(*a, *b);
+		//printf("all in a\n");
+		//st_printstack_ab(*a, *b);
 		i++;
 	}
 }
