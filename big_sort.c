@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:01:17 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/16 16:26:37 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:50:03 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 int	ft_in_pos(t_list *b, int len)
 {
-	if (!b)
-		return (len);
-	else if (len == *(int *)b->content)
-		ft_in_pos(b->next, len--);
-	else
-		return (len);
-}
+	int	aux;
+	int	i;
 
+	i = 0;
+	aux = len;
+	while (b)
+	{
+		//printf("adios\n");
+		if (*(int *)b->content == len - 1 - i)
+			aux--;	
+		else
+			aux = len;
+		i++;
+		b = b->next;
+	}
+	return (aux);
+}
 
 void	ft_big_sort(t_list **a, t_list **b)
 {
-	//int size;
-	//size = ft_block_size(*a);
-	
 	int	len_a;
 	int	len_b;
 	int	max_bits;
@@ -53,8 +59,10 @@ void	ft_big_sort(t_list **a, t_list **b)
 		}
 		//printf("send to b\n");
 		//st_printstack_ab(*a, *b);
-		//len_b = ft_lstsize(*b);
-		len_b = ft_in_pos(*b, len_b);
+		len_b = ft_lstsize(*b);
+		if (i != max_bits - 1)
+			len_b = ft_in_pos(*b, len_b);
+		//printf("LEN %d\n", len_b);
 		while(len_b--)
 		{
 			ft_push(b, a, 'a');
