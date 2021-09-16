@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:01:17 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/16 17:50:03 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/16 18:39:27 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,18 @@ void	ft_big_sort(t_list **a, t_list **b)
 		while(j < len_a && !ft_issorted(*a))
 		{
 			if (((*(int *)(*a)->content >> i) & 1) == 0) // && !ft_issorted(*a))
+			{
+				if (j != len_a - 1)
 					ft_push(a, b, 'b');
+				/*if (*(int *)(*a)->content == 0)
+				{
+					ft_push(a, b, 'b');
+					ft_rotate(b, 'b');
+				}*/
+
+			}
 			else
-					ft_rotate(a, 'a');
+				ft_rotate(a, 'a');
 			//st_printstack_ab(*a, *b);
 			j++;
 		}
