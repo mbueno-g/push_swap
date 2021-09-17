@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/17 11:04:48 by mbueno-g          #+#    #+#             */
+/*   Updated: 2021/09/17 13:00:00 by mbueno-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -31,5 +42,5 @@ int		*ft_quick_sort(t_list *a);
 void	ft_index(t_list **a, int *s);
 
 t_list	*ft_lstnew_struct(void *content, size_t size);
-int			st_printstack_ab(t_list *a, t_list *b);
+int			st_printstack_ab(t_list *a, t_list *b, char m);
 #endif
