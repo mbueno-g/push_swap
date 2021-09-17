@@ -6,14 +6,14 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 15:12:08 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/16 18:39:29 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/17 12:59:49 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "Libft/libft.h"
 
-int	st_printstack_ab(t_list *a, t_list *b);
+//int	st_printstack_ab(t_list *a, t_list *b);
 
 void	ft_print_error(char *m)
 {
@@ -80,19 +80,20 @@ void	ft_push_swap(t_list **a, t_list **b)
 		else
 		{
 			s = ft_quick_sort(*a);
-			//printf("ORIGINAL\n");
-			//st_printstack_ab(*a, *b);
+			printf("ORIGINAL\n");
+			st_printstack_ab(*a, *b, 'd');
 			ft_index(a, s);
-			//printf("INDEX\n");
-			//st_printstack_ab(*a, *b);
+			printf("INDEX\n");
+			st_printstack_ab(*a, *b, 'd');
+			st_printstack_ab(*a, *b, 'b');
 			if (len > 3 && len <= 5)
 				ft_sort_four_five(a, b);
 			else
 				ft_big_sort(a,b);
 		}
 	}
-	//printf("SORTED\n");
-	//st_printstack_ab(*a, *b);
+	printf("SORTED\n");
+	st_printstack_ab(*a, *b, 'd');
 }
 
 int	main(int argc, char **argv)
