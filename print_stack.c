@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:52:11 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/17 13:54:35 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:19:57 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,31 @@ t_list	*st_printstack(t_list *stack, char m)
 	int b;
 
 	b = 0;
+	m = 'c';
 	if (stack)
 	{
-		if (m == 'b')
+		if ((*(int *)stack->content >> b) == 0)
+			ft_putnbr_fd(0,1);
+		else
 		{
-			if ((*(int *)stack->content >> b) == 0)
-				ft_putnbr_fd(0,1);
-			else
+			while ((*(int *)stack->content >> b) != 0)
 			{
-				while ((*(int *)stack->content >> b) != 0)
-				{
-					if (((*(int *)stack->content >> b) & 1) == 0)
-						ft_putnbr_fd(0, 1);
-					else
-						ft_putnbr_fd(1, 1);
-					b++;
-				}
+				if (((*(int *)stack->content >> b) & 1) == 0)
+					ft_putnbr_fd(0, 1);
+				else
+					ft_putnbr_fd(1, 1);
+				b++;
 			}
 		}
-		else
-			ft_putnbr_fd(*(int *)stack->content,1);
+		ft_putnchar_fd('\t', 1, 2);
+		ft_putnbr_fd(*(int *)stack->content,1);
 		ft_putnchar_fd('\t', 1, 2);
 		stack = stack->next;
 	}
 	else
 	{
+		ft_putchar_fd('.', 1);
+		ft_putnchar_fd('\t', 1, 2);
 		ft_putchar_fd('.', 1);
 		ft_putnchar_fd('\t', 1, 2);
 	}
@@ -65,6 +65,7 @@ int	st_printstack_ab(t_list *a, t_list *b, char m)
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}*/
+	m = 'c';
 	write(1, "\n", 1);
 	while (a || b)
 	{
@@ -75,6 +76,10 @@ int	st_printstack_ab(t_list *a, t_list *b, char m)
 	ft_putnchar_fd('-', 1, 10);
 	ft_putstr_fd("\t", 1);
 	ft_putnchar_fd('-', 1, 10);
-	ft_putstr_fd("\na\t\tb\n\n", 1);
+	ft_putstr_fd("\t", 1);
+	ft_putnchar_fd('-', 1, 10);
+	ft_putstr_fd("\t", 1);
+	ft_putnchar_fd('-', 1, 10);
+	ft_putstr_fd("\na (2)\t\ta(10)\t\tb(2)\t\tb(10)\n\n", 1);
 	return (0);
 }
