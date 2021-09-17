@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:46:49 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/17 17:08:44 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:19:45 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ int	ft_next_in_a(t_list *b, int len, int i)
 
     len_b = ft_lstsize(b);
 	len = 0;
-    aux = len_b - 1;
-    j = 0;
+    //aux = len_b - 1;
+    aux = len;
+	j = 0;
     while (aux)
     {
-        //printf("aux %d, j %d, i %d, content %d\n", aux, j, i, *(int *)b->content);
+      	//printf("aux %d, j %d, i %d, content %d\n", aux, j, i, *(int *)b->content);
         if (((*(int *)b->content >> i) & 1) == 0)
             j++;
         else
@@ -63,13 +64,16 @@ void    ft_big_sort(t_list **a, t_list **b)
     int    j;
     int    i;
 	int		on;
+	int		len;
 
-	on = 0;
+	on = 1;
     len_a = ft_lstsize(*a);
     max_bits = 0;
     while((len_a >> max_bits) != 0)
         max_bits++;
     i = 0;
+	len = 0;
+	len_b = ft_lstsize(*b);
     while (i <=  max_bits - 1)
     {
         j = 0;
@@ -87,26 +91,30 @@ void    ft_big_sort(t_list **a, t_list **b)
           }
             else
 			{
-                /*len_b = ft_lstsize(*b);
-                if (*(int *)(*a)->content == len_b)
+                len_b = ft_lstsize(*b);
+				//printf("content %d, len %d, len_b %d\n", *(int *)(*a)->content, len, len_b);
+                if (*(int *)(*a)->content == len && len_b == len) 
                 {
-                    while (*(int *)(*a)->content == len_b)
+					//printf("iguaaaaaaal\n");
+                    while (*(int *)(*a)->content == len)
                     {
                         ft_push(a, b, 'b');
                         len_b++;
-						//j++;
+						j++;
                     }
                 }
                 else
                 {
                     //printf("hla\n");
                     ft_rotate(a, 'a');
-                }*/
-                ft_rotate(a, 'a');
+                }
+                //ft_rotate(a, 'a');
 			}
-           	//printf("xxxxxx %d\n", j);
-			//st_printstack_ab(*a, *b, 'b');
-            j++;
+           	printf("xxxxxx %d\n", j);
+			st_printstack_ab(*a, *b, 'b');
+			len = len_b - ft_in_pos(*b, len_b);
+			//printf("len %d, len_b %d\n", len, len_b);
+			j++;
         }
 		if (on)
 		{
@@ -114,12 +122,15 @@ void    ft_big_sort(t_list **a, t_list **b)
         	st_printstack_ab(*a, *b, 'b');
 		}
 		len_b = ft_lstsize(*b);
-		//printf("max_bits %d, i %d\n", max_bits, i);
+		printf("max_bits %d, i %d\n", max_bits, i);
         if (i < (max_bits - 1))
-           len_b = ft_in_pos(*b, len_b);
+		{
+			len_b = ft_in_pos(*b, len_b);
+			len = len_b;
+		}
 		if (i <  max_bits - 2)
 		{
-			//printf("len_b %d\n", len_b);
+		   printf("len_b %d\n", len_b);
 		   len_b -= ft_next_in_a(*b, len_b, i + 1);
 		}
 		if (on)
