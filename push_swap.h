@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 11:04:48 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/17 13:54:38 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:48:35 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "Libft/libft.h"
 
 /* POSSIBLE MOVES */

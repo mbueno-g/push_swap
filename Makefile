@@ -6,13 +6,13 @@
 #    By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 15:10:38 by mbueno-g          #+#    #+#              #
-#    Updated: 2021/09/17 19:19:47 by mbueno-g         ###   ########.fr        #
+#    Updated: 2021/09/20 18:59:36 by mbueno-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 RM = rm -f
 LIBFT = Libft/libft.a
 
