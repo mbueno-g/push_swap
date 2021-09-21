@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 16:28:17 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/20 18:59:42 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/21 18:21:53 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
  * to int representation.  
 */
 
-/* 	Probar a declarar num como long*/
-
-long int ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int	i;
 	int	cont;
-	long int num;
+	int	num;
 
 	i = 0;
 	cont = 1;
@@ -37,11 +35,6 @@ long int ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		/*if (num * cont > 214748364 && str[i] - '0' > 7)
-			return (-1);
-		if (num * cont < -214748364 && str[i] - '0' >= 8)
-			return (0);
-		*/
 		num = num * 10 + str[i] - '0';
 		i++;
 	}
