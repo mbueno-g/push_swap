@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 11:04:48 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/20 16:48:35 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/21 18:50:28 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_sort_three(t_list **a);
 void	ft_sort_four_five(t_list **a, t_list **b);
 void	ft_big_sort(t_list **a, t_list **b);
 
-
 /* UTILS  */
 int		ft_issorted(t_list *a);
 int		ft_min(t_list *a);
@@ -43,5 +42,6 @@ int		*ft_quick_sort(t_list *a);
 void	ft_index(t_list **a, int *s);
 
 t_list	*ft_lstnew_struct(void *content, size_t size);
-int			st_printstack_ab(t_list *a, t_list *b, char m);
+int		st_printstack_ab(t_list *a, t_list *b, char m);
+
 #endif

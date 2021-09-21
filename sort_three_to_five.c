@@ -6,12 +6,12 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 16:14:09 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/16 18:28:17 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/21 18:52:33 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-# include "Libft/libft.h"
+#include "Libft/libft.h"
 
 void	ft_sort_three(t_list **a)
 {
@@ -42,16 +42,14 @@ void	ft_place_in_top(t_list **a, int min)
 	len = ft_lstsize(*a);
 	r = 1;
 	distancia = min;
-	if (min > len/2)
+	if (min > len / 2)
 	{
 		r = 2;
 		distancia = len - min;
 	}
-	//printf("distancia %d\n", distancia);
 	while (distancia)
 	{
 		if (r == 1)
-		//¿Cuando hacer swap? EJ: 2 1 3 4 5
 			ft_rotate(a, 'a');
 		else
 			ft_reverse_rotate(a, 'a');
@@ -74,12 +72,9 @@ void	ft_sort_four_five(t_list **a, t_list **b)
 	{
 		min = ft_min(*a);
 		ft_place_in_top(a, min);
-		//printf("place in top\n");
-		//st_printstack_ab(*a,*b);
-		//printf("top in b\n");
 		sort = ft_issorted((*a)->next);
 		if (sort)
-				break;
+			break ;
 		ft_push(a, b, 'b');
 		len = ft_lstsize(*a);
 	}
@@ -87,5 +82,4 @@ void	ft_sort_four_five(t_list **a, t_list **b)
 		ft_sort_three(a);
 	while (*b)
 		ft_push(b, a, 'a');
-	//st_printstack_ab(*a,*b);
 }

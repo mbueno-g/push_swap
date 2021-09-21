@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/21 15:44:00 by mbueno-g          #+#    #+#             */
+/*   Updated: 2021/09/21 15:53:02 by mbueno-g         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 #include "Libft/libft.h"
@@ -26,15 +37,15 @@ void	ft_reverse_rotate(t_list **src, char rr)
 
 	aux = *src;
 	i = 1;
-	//para que en la ultima iteración tenga el último en vez de uno que no existe
 	while (aux->next->next)
 	{
 		aux = aux->next;
 		i++;
 	}
 	ft_lstadd_front(src, ft_lstnew_struct(aux->next->content, sizeof(int)));
+	free(aux->next->content);
 	free(aux->next);
-	aux->next = NULL; //¿Por que no me deja acerlo con aux = NULL;?
+	aux->next = NULL;
 	if (rr == 'a')
 		write(1, "rra\n", 4);
 	else if (rr == 'b')

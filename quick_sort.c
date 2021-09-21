@@ -6,7 +6,7 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 15:29:31 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/20 17:34:18 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:58:06 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	*ft_create_array(t_list *a)
 		a = a->next;
 		i++;
 	}
-	//NULL??
 	return (s);
 }
 
@@ -57,7 +56,6 @@ int	*ft_quick_sort(t_list *a)
 			}
 			j++;
 		}
-		//printf("sort %d\n", s[i]);
 		i++;
 	}
 	return (s);

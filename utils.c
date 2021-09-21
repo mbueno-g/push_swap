@@ -6,12 +6,12 @@
 /*   By: mbueno-g <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 15:57:54 by mbueno-g          #+#    #+#             */
-/*   Updated: 2021/09/16 18:11:00 by mbueno-g         ###   ########.fr       */
+/*   Updated: 2021/09/21 18:51:29 by mbueno-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-# include "Libft/libft.h"
+#include "Libft/libft.h"
 
 int	ft_min(t_list *a)
 {
@@ -70,10 +70,10 @@ int	ft_issorted(t_list *a)
 
 void	ft_index(t_list	**a, int *s)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	t_list	*aux;
-	
+
 	aux = *a;
 	len = ft_lstsize(*a);
 	while (aux)
@@ -81,16 +81,13 @@ void	ft_index(t_list	**a, int *s)
 		i = 0;
 		while (i < len)
 		{
-			//printf("content %d, copia %d, index %d\n", *(int *)(*a)->content, s[i], i);
 			if (s[i] == *(int *)aux->content)
 			{
-				//printf("content %d, copia %d, index %d\n", *(int *)(*a)->content, s[i], i);
-				*(int *)aux->content = i;
-				break ; //por alguna razon entra con 1 4 -4 -1
+				ft_memcpy(aux->content, (void *) &i, sizeof(int));
+				break ;
 			}
 			i++;
 		}
-		//printf("index %d\n", *(int *)aux->content);
 		aux = aux->next;
 	}
 }
