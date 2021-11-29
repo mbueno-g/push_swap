@@ -2,13 +2,13 @@
 
 :books: [Introduction](#introduction)
 
-:books: [Push_swap example](#push_swap-example)
+:bookmark_tabs: [Push_swap example](#push_swap-example)
  
-:world_map: [Concept map](#concept-map)
+<!--- :world_map: [Concept map](#concept-map)
 
-:collision: [Radix sort algorithm](#radix-sort-algorithm)
+:collision: [My sorting algorithm](#my-sorting-algorithm)
  
-:footprints: [Step by step](#step-by-step)
+:footprints: [Step by step](#step-by-step) -->
 
 ## Introduction
 The aim of the Push_swap proyect is to implement a sorting algorithm. At our disposal, we have a set of non-repeating int values, two stacks(a,b) and limited instructions to manipulate 
@@ -60,18 +60,4 @@ $> ./push_swap 2 1 3 6 5 8
  pa
  pa
 ```
-
-## Concept map
-
-## Radix sort algorithm
-
-
-
-
-
-
-
-
-
-
 
