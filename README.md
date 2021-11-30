@@ -4,11 +4,10 @@
 
 :bookmark_tabs: [Push_swap example](#push_swap-example)
 
+:collision: [New concept](#new-concept): Bitwise operators
+
 :collision: [My sorting algorithm](#my-sorting-algorithm)
  
-<!--- :world_map: [Concept map](#concept-map)
- 
-:footprints: [Step by step](#step-by-step) -->
 
 ## Introduction
 The aim of the Push_swap proyect is to implement a sorting algorithm. At our disposal, we have a set of non-repeating int values, two stacks(A,B) and limited instructions to manipulate 
@@ -120,6 +119,38 @@ $> ./push_swap 2 1 3 6 5 8
  pa
 ```
 
+## New concept
+
+Let's introduce two bitwise operators:  `` >> `` and `` & ``. 
+
+The `` & `` bitwise operator is like an AND but bit by bit. The operands are converted to 32-bit integers and expressed by a series of bits (zeroes and ones). Each bit in the first operand is paired with the corresponding bit in the second operand: first bit to first bit, second bit to second bit, and so on.
+The truth table is:
+| a | b | a & b |
+|:-:|:-:| :----:|
+| 1 | 1 | 1|
+| 1 | 0 | 0|
+| 0 | 1 | 0|
+| 0 | 0 | 0|
+
+Let's see the following example:
+```
+     9 (base 10) = 00000000000000000000000000001001 (base 2)
+    14 (base 10) = 00000000000000000000000000001110 (base 2)
+                   --------------------------------
+14 & 9 (base 10) = 00000000000000000000000000001000 (base 2) = 8 (base 10)
+```
+
+The `` >> `` bitwise operator is a right-shift operator that moves the bit values of a base 2 number. The left operand is the value to be shifted and the right operand is the number of bits to be moved: <img align=center src=https://user-images.githubusercontent.com/71781441/144030206-1695b649-d0f4-4d24-9f06-2dc4e54d5909.png>
+
+So the result is the whole number part of dividing by 2 as many times as the right operator says. Let's see the following example:
+```
+     9 (base 10) = 00000000000000000000000000001001 >> 0 = 00000000000000000000000000001001 (base 2)
+     4 (base 10) = 00000000000000000000000000001001 >> 1 = 00000000000000000000000000000100 (base 2)
+     2 (base 10) = 00000000000000000000000000001001 >> 2 = 00000000000000000000000000000010 (base 2)
+     1 (base 10) = 00000000000000000000000000001001 >> 3 = 00000000000000000000000000000001 (base 2)
+     0 (base 10) = 00000000000000000000000000001001 >> 4 = 00000000000000000000000000000000 (base 2)
+```
+
 ## My sorting algorithm
 
 :footprints: Step 1: Parse numbers
@@ -153,19 +184,20 @@ Otherwise go to step 3.
 
 In order to avoid working with negative numbers, we turn them into positive ones. This requires sorting the numbers in an array and matching every number with the position (index) of that number in the sorted array. Let's see an example:
 ```
-./push_swap 4 3 -1 5
-
-array_0 = [4,3,-1,5] //initial array
-array_1 = [-1,3,4,5] // sorted array
-array_2 = [2,1,0,3] // numbers we are going to work with
+ 4 3 -1 5  // original numbers
+ 2 1  0 3 
 ```
 
 :footprints: Step 4: Apply 4 or 5 numbers sorting algorithm
+
 This algorithm is about moving to the top of stack A the minimum number and pushing it to stack B until there`s only 3 numbers in stack A. This is the moment whem the algorithm to sort 3 numbers gets back in the game. 
 Otherwise, go to step 5.
 
 :footprints: Step 5: Apply radix sort algorithm
 
-
+The idea of this algorithm is to push to stack B the numbers which has a 0 (multiples of two) in the position i in their binary representation. Otherwise, if the bit is 1 we rotate it (i.e we move it to the end of the stack). Once, we check all the i-positions of every number we push the numbers in B back to A and we repeat the process for the (i+1)-position.
+So this is all about pushing numbers back and forth checking the i-positions starting from the furthest bit to the right (least significant bit).
+With the bitwise operator `` >> `` we move to the bit i and with the `` & `` operator we figure out if it is a 0-bit or a 1-bit by using `` &1 ``.
+Eventually, after checking all the bits and pushing back to B all the numbers, stack A is sorted!!
 
 
