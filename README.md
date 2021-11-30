@@ -200,4 +200,18 @@ So this is all about pushing numbers back and forth checking the i-positions sta
 With the bitwise operator `` >> `` we move to the bit i and with the `` & `` operator we figure out if it is a 0-bit or a 1-bit by using `` &1 ``.
 Eventually, after checking all the bits and pushing back to B all the numbers, stack A is sorted!!
 
+```
+./push_swap 2 1 3 5 4
+ Init a and b   Exec sa     Exec pb pb pb     Exec rr      Exec rrr       Exec sa      Exec pa pa pa
+ 
+ 2                1                                                                       1
+ 1                2                                                                       2
+ 3                3                                                                       3
+ 5                6            6   3           5    2        6    3        5     3        5
+ 4                5            5   2           8    1        5    2        6     2        6
+---  ---         ---  ---     ---  ---        ---  ---      ---  ---      ---   ---      ---  ---
+ a    b           a    b       a    b          a    b        a    b        a     b        a    b
+Number of instructions : 10
+
+```
 
