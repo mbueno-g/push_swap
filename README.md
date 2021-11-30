@@ -3,10 +3,10 @@
 :books: [Introduction](#introduction)
 
 :bookmark_tabs: [Push_swap example](#push_swap-example)
- 
-<!--- :world_map: [Concept map](#concept-map)
 
 :collision: [My sorting algorithm](#my-sorting-algorithm)
+ 
+<!--- :world_map: [Concept map](#concept-map)
  
 :footprints: [Step by step](#step-by-step) -->
 
@@ -119,4 +119,16 @@ $> ./push_swap 2 1 3 6 5 8
  pa
  pa
 ```
+<!--
 
+## My sorting algorithm
+
+:footprints: Step 1: Parse numbers
+
+We have to check if the numbers are not repeated,
+
+
+:footprints: Step 2:
+
+:footprints: Step 3:
+-->
