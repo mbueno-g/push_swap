@@ -119,7 +119,7 @@ $> ./push_swap 2 1 3 6 5 8
  pa
 ```
 
-## New concept : Bitwise operators
+## New concept ##: Bitwise operators
 
 Let's introduce two bitwise operators:  `` >> `` and `` & ``. 
 
