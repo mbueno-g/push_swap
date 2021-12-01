@@ -202,18 +202,18 @@ Eventually, after checking all the bits and pushing back to B all the numbers, s
 
 ```
 ./push_swap -2 -1 1 2 5 4
- Init a and b   Indexed    Dec to binary      Exec pb        Exec ra       Exec pb ra ra    Exec pa pa    Exec pb ra ra pb
+ Init a and b   Indexed    Dec to binary      Exec pb        Exec ra       Exec pb ra ra    Exec pa pa  Exec pb ra pb pb ra  Exec pa pa pa     Exec pb ra pb ra   Exec pa pa
  
- -2               0           0000                                                           0000
- -1               1           0001            0001           0010                	     0010
- 1                2           0010            0010           0011	     0100 	     0100
- 2                3           0011            0011           0101	     0001	     0001
- 5                5           0101            0101           0100	     0011   0010     0011	   0010  0001
- 4		  4	      0100	      0100   0000    0001   0000     0101   0000     0101	   0100  0000
----  ---         ---  ---     ----   ----     ----   ----    ----   ----     ----   ----     ----  ----    ----  ----
- a    b           a    b       a      b         a    b         a      b        a      b        a    b        a    b
- 					    |                          xxx0                             |                           xx0x                            
-					                                  ^							      ^
+ -2               0           000                                                             000                              000                                  000
+ -1               1           001             001             010                	      010                              100                                  001
+ 1                2           010             010             011	      100 	      100                              001                 010              010
+ 2                3           011             011             101	      001	      001           101   001          101                 011              011
+ 5                5           101             101             100	      011    010      011	    010   100          010	           100    001       100
+ 4		  4	      100	      100    000      001    000      101    000      101	    011   000          011                 101    000       101
+---  ---         ---  ---     ---   ---       ---    ---      ---    ---      ---    ---      ---  ---      ---   ---          ---   ---           ---    ---       ---   ---
+ a    b           a    b       a      b         a    b         a      b        a      b        a    b        a    b             a     b             a      b         a     b
+   					    |                           xx0                             |                 x0x               |               0xx               |       
+					                                  ^				                    ^                               ^
 Number of instructions : 21
 
 ```
