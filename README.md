@@ -6,7 +6,7 @@
 
 :collision: [New concept](#new-concept): Bitwise operators
 
-:collision: [My sorting algorithm](#my-sorting-algorithm)
+:footprints: [My sorting algorithm](#my-sorting-algorithm)
  
 
 ## Introduction
