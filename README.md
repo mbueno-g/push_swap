@@ -201,17 +201,20 @@ With the bitwise operator `` >> `` we move to the bit i and with the `` & `` ope
 Eventually, after checking all the bits and pushing back to B all the numbers, stack A is sorted!!
 
 ```
-./push_swap 2 1 3 5 4
- Init a and b   Exec sa     Exec pb pb pb     Exec rr      Exec rrr       Exec sa      Exec pa pa pa
+./push_swap -2 -1 1 2 5 4
+ Init a and b   Indexed    Dec to binary      Exec pb        Exec ra       Exec pb ra ra    Exec pa pa    Exec pb ra ra pb
  
- 2                1                                                                       1
- 1                2                                                                       2
- 3                3                                                                       3
- 5                6            6   3           5    2        6    3        5     3        5
- 4                5            5   2           8    1        5    2        6     2        6
----  ---         ---  ---     ---  ---        ---  ---      ---  ---      ---   ---      ---  ---
- a    b           a    b       a    b          a    b        a    b        a     b        a    b
-Number of instructions : 10
+ -2               0           0000                                                           0000
+ -1               1           0001            0001           0010                	     0010
+ 1                2           0010            0010           0011	     0100 	     0100
+ 2                3           0011            0011           0101	     0001	     0001
+ 5                5           0101            0101           0100	     0011   0010     0011	   0010  0001
+ 4		  4	      0100	      0100   0000    0001   0000     0101   0000     0101	   0100  0000
+---  ---         ---  ---     ----   ----     ----   ----    ----   ----     ----   ----     ----  ----    ----  ----
+ a    b           a    b       a      b         a    b         a      b        a      b        a    b        a    b
+ 					    |                          xxx0                             |                           xx0x                            
+					                                  ^							      ^
+Number of instructions : 21
 
 ```
 
