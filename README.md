@@ -10,7 +10,7 @@
  
 
 ## Introduction
-The aim of the Push_swap proyect is to implement a sorting algorithm. At our disposal, we have a set of non-repeating int values, two stacks(A,B) and limited instructions to manipulate 
+The aim of the Push_swap proyect is to sort data on a stack using the lowest possible number of actions. At our disposal, we have a set of non-repeating int values, two stacks(A,B) and limited instructions to manipulate 
 both stacks:
 
 <table>
