@@ -119,7 +119,7 @@ $> ./push_swap 2 1 3 6 5 8
  pa
 ```
 
-## New concept
+## New concept : Bitwise operators
 
 Let's introduce two bitwise operators:  `` >> `` and `` & ``. 
 
@@ -212,7 +212,7 @@ Eventually, after checking all the bits and pushing back to B all the numbers, s
  4		  4	      100	      100    000      001    000      101    000      101	    011   000          011                 101    000       101
 ---  ---         ---  ---     ---   ---       ---    ---      ---    ---      ---    ---      ---  ---      ---   ---          ---   ---           ---    ---       ---   ---
  a    b           a    b       a      b         a    b         a      b        a      b        a    b        a    b             a     b             a      b         a     b
-   					    |                           xx0                             |                 x0x               |               0xx               |       
+   					    |                           xx0                             |                 x0x               |               0xx               | 
 					                                  ^				                    ^                               ^
 Number of instructions : 21
 
