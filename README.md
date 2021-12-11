@@ -153,7 +153,7 @@ So the result is the whole number part of dividing by 2 as many times as the rig
 
 ## My sorting algorithm
 
-:footprints: Step 1: Parse numbers
+:footprints: Step 1: Parsing numbers
 
 We have to check if the arguments are digits, if they are not repeated and if they are integers (n ∈ [-21474836478 2147483647]). If they meet all this requirements, they are put in stack A, a linked list where the void * content is casted to a int after allocating memory for a int. 
 ```
