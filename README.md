@@ -89,7 +89,7 @@ both stacks:
 ## Push_swap example
 Here there's an example to illustrate the effect of these instructions. The numbers to be sorted can be given to the push_swap executable as arguments in two ways: as a set
 of numbers (``./push_swap 2 1 3 6 5 8 ``) or as a string of numbers separated by a space (``./push_swap "2 1 3 6 5 8"``).
-```
+```Bash
 $> ./push_swap 2 1 3 6 5 8
  
  Init a and b   Exec sa     Exec pb pb pb     Exec rr      Exec rrr       Exec sa      Exec pa pa pa
@@ -105,7 +105,7 @@ $> ./push_swap 2 1 3 6 5 8
 Number of instructions : 10
 ```
 The output of this program is the set of instructions needed to sort in ascending order numbers into stack a:
-```
+```Bash
 $> ./push_swap 2 1 3 6 5 8
  sa
  pb
@@ -156,7 +156,7 @@ So the result is the whole number part of dividing by 2 as many times as the rig
 :footprints: Step 1: Parsing numbers
 
 We have to check if the arguments are digits, if they are not repeated and if they are integers (n ∈ [-21474836478 2147483647]). If they meet all this requirements, they are put in stack A, a linked list where the void * content is casted to a int after allocating memory for a int. 
-```
+```C
 typedef struct s_list
 {
 	void			*content;
@@ -164,7 +164,7 @@ typedef struct s_list
 }					t_list;	
 ```
 Let's see a simple example of how to work with an integer and this linked list:
-```
+```C
 t_list *example;
 int     n;
 
@@ -200,7 +200,7 @@ So this is all about pushing numbers back and forth checking the i-positions sta
 With the bitwise operator `` >> `` we move to the bit i and with the `` & `` operator we figure out if it is a 0-bit or a 1-bit by using `` &1 ``.
 Eventually, after checking all the bits and pushing back to B all the numbers, stack A is sorted!!
 
-```
+```Bash
 ./push_swap -2 -1 1 2 5 4
  Init a and b   Indexed    Dec to binary      Exec pb        Exec ra       Exec pb ra ra    Exec pa pa  Exec pb ra pb pb ra  Exec pa pa pa     Exec pb ra pb ra   Exec pa pa
  
